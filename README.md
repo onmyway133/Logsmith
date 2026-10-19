@@ -1,3 +1,5 @@
+<img src="screenshots/icon.png" width="128" alt="Logsmith icon">
+
 # Logsmith
 
 A small Mac app that shows the network requests your app makes, live. Point your iOS simulator or Mac app at it, and every request shows up with its headers, body, status, and timing.
