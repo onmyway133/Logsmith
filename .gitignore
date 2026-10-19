@@ -5,3 +5,4 @@
 *.xcodeproj
 DerivedData/
 .DS_Store
+.super/
