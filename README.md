@@ -4,6 +4,8 @@ A small Mac app that shows the network requests your app makes, live. Point your
 
 There's no SDK to add. Your app sends a JSON POST to a local endpoint, and Logsmith shows it.
 
+![Logsmith](screenshots/logsmith.png)
+
 - Live table of requests, sortable and searchable
 - Request and response headers and bodies, with JSON pretty printing and highlighting
 - Filter by status, method, and host, or search inside bodies
