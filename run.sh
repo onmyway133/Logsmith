@@ -9,8 +9,18 @@ APP="$BIN_PATH/Logsmith.app"
 
 pkill -x Logsmith 2>/dev/null || true
 rm -rf "$APP"
-mkdir -p "$APP/Contents/MacOS"
+mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "$BIN_PATH/Logsmith" "$APP/Contents/MacOS/Logsmith"
+
+# Compile the Icon Composer icon into Assets.car and AppIcon.icns
+xcrun actool Resources/AppIcon.icon \
+    --compile "$APP/Contents/Resources" \
+    --app-icon AppIcon \
+    --platform macosx \
+    --minimum-deployment-target 27.0 \
+    --target-device mac \
+    --output-partial-info-plist "$BIN_PATH/AppIcon-partial.plist" \
+    > /dev/null
 
 cat > "$APP/Contents/Info.plist" << 'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
@@ -19,6 +29,10 @@ cat > "$APP/Contents/Info.plist" << 'PLIST'
 <dict>
     <key>CFBundleExecutable</key>
     <string>Logsmith</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>CFBundleIconName</key>
+    <string>AppIcon</string>
     <key>CFBundleIdentifier</key>
     <string>com.onmyway133.Logsmith</string>
     <key>CFBundleName</key>
