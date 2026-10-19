@@ -62,7 +62,7 @@ call("DELETE", "\(api)/v1/projects/99", status: 404, ms: 60, response: ["error":
 call("POST", "\(api)/v1/uploads", status: 500, ms: 1840, request: ["file": "report.pdf"], response: ["error": "internal", "message": "Upload service unavailable"])
 call("GET", "https://slow.example.com/v1/feed", ms: 30000, error: "The request timed out.")
 call("PUT", "\(api)/v1/settings", status: 204, ms: 75, request: ["theme": "dark", "notifications": true])
-call("GET", "\(api)/v1/notifications/stream")
+call("GET", "\(api)/v1/reports/export?format=csv")
 
 var request = URLRequest(url: endpoint)
 request.httpMethod = "POST"
